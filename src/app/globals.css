@@ -20,10 +20,15 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background-image: url('./pics/background2.jpg'); 
+  background-size: cover;  
+  background-position: center;  
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
   /* font-family: 'Quicksand', Arial, Helvetica, sans-serif;*/
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
 
 .timer-container {
   display: flex;

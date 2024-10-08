@@ -1,7 +1,7 @@
 "use client";
 import React, {useState} from "react";
 import Timer from "./Timer";
-import SpotifyAuth from "./SpotifyAuth";
+import SpotifyAuth from "./Authentication/SpotifyAuth";
 
 // Define durations for Pomodoro, Short Break, and Long Break
 const sessionTypes = {
@@ -27,7 +27,7 @@ const TimerLayout: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#f8f0e3] text-gray-800 font-quicksand">
+    <div className="flex flex-col items-center justify-center min-h-screen text-gray-800 font-quicksand">
       {/* Pomodoro, Short Break, Long Break Buttons */}
       <div className="flex space-x-6 mb-0">
         <button
@@ -62,23 +62,6 @@ const TimerLayout: React.FC = () => {
         </button>
       </div>
 
-      {/* Session Timeline */}
-      <div className="flex w-full max-w-lg space-x-2 mb-10">
-        {/* For each session, show a progress indicator */}
-        {Array(8)
-          .fill(null)
-          .map((_, index) => (
-            <div
-              key={index}
-              className={`transition-transform transform hover:scale-105 ${
-                completedSessions.includes(index)
-                  ? "bg-[#ffb6b9] w-16 h-6"
-                  : "bg-[#fbe8e7] w-16 h-6"
-              } rounded-full`}
-            />
-          ))}
-      </div>
-
       {/* Timer Circle Container */}
       <div className="relative flex items-center justify-center w-96 h-96 rounded-full ">
         <Timer
@@ -92,7 +75,7 @@ const TimerLayout: React.FC = () => {
       </div>
 
       {/* Start/Pause and Reset Buttons */}
-      <div className="flex space-x-4 mt-8">
+      <div className="flex space-x-4 mt-8 mb-10">
         <button
           className="bg-transparent border border-gray-300 text-gray-800 py-1 px-5 rounded-full shadow-lg hover:bg-white transition duration-300 text-xl"
           onClick={() => setIsActive(!isActive)}
